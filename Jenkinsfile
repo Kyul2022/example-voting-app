@@ -1,0 +1,40 @@
+pipeline {
+
+    agent any
+
+    stages {
+
+        stage("build") {
+            steps{
+                checkout scm
+                sh 'cd example-voting-app'
+                sh 'docker compose up -d'
+            }
+        }
+
+        
+        stage("test") {
+            steps{
+                checkout scm
+                sh 'cd example-voting-app/result'
+                sh 'docker compose -f docker-compose-test.yml up -d'
+            }
+        }
+
+        
+        stage("stage") {
+            steps{
+                echo "stage"
+            }
+        }
+
+        
+        stage("deploy") {
+            steps{
+                echo "deploy"
+            }
+        }
+
+
+    }
+}
