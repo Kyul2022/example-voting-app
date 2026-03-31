@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     stages {
-
+//nothing
         stage("build") {
             steps{
                 checkout scm
