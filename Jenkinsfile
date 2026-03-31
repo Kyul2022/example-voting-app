@@ -24,7 +24,7 @@ pipeline {
         
         stage("stage") {
             steps{
-                echo "stage"
+                echo "staging"
             }
         }
 
