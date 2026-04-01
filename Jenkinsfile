@@ -6,8 +6,6 @@ pipeline {
 //nothing3
         stage("build") {
             steps{
-                sh 'ls -l'
-                sh 'cd example-voting-app'
                 sh 'docker compose up -d'
             }
         }
@@ -15,8 +13,7 @@ pipeline {
         
         stage("test") {
             steps{
-                sh 'ls -l'
-                sh 'cd example-voting-app/result'
+                sh 'cd ./result'
                 sh 'docker compose -f docker-compose-test.yml up -d'
             }
         }
