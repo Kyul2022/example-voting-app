@@ -1,0 +1,2 @@
+FROM redis:alpine
+COPY ./redis.sh /healthchecks/redis.sh

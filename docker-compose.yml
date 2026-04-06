@@ -19,7 +19,7 @@ services:
     volumes:
      - ./vote:/usr/local/app
     ports:
-      - "8080:80"
+      - "8081:80"
     networks:
       - front-tier
       - back-tier
@@ -52,7 +52,9 @@ services:
       - back-tier
 
   redis:
-    image: redis:alpine
+    build: 
+      context: ./healthchecks
+      dockerfile: RedisDockerfile
     volumes:
       - "./healthchecks:/healthchecks"
     healthcheck:
@@ -62,7 +64,9 @@ services:
       - back-tier
 
   db:
-    image: postgres:15-alpine
+    build:
+      context: ./healthchecks
+      dockerfile: PostgreDockerfile
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
