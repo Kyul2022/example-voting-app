@@ -55,8 +55,6 @@ services:
     build: 
       context: ./healthchecks
       dockerfile: RedisDockerfile
-    volumes:
-      - "./healthchecks:/healthchecks"
     healthcheck:
       test: /healthchecks/redis.sh
       interval: "5s"
@@ -72,7 +70,6 @@ services:
       POSTGRES_PASSWORD: "postgres"
     volumes:
       - "db-data:/var/lib/postgresql/data"
-      - "./healthchecks:/healthchecks"
     healthcheck:
       test: /healthchecks/postgres.sh
       interval: "5s"
