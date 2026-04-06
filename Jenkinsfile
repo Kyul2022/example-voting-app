@@ -6,6 +6,7 @@ pipeline {
 //nothing3
         stage("build") {
             steps{
+                tree ./
                 sh 'docker compose up -d'
             }
         }
