@@ -14,8 +14,9 @@ pipeline {
         
         stage("test") {
             steps{
-                sh 'cd ./result'
+                dir('./result'){
                 sh 'docker compose -f docker-compose.test.yml up -d'
+                }
             }
         }
 
