@@ -4,6 +4,11 @@ services:
 
   sut:
     build: ./tests/
+    healthcheck:
+      test: "/app/tests.sh"
+      timeout: 30s
+      retries: 5
+      start_period: 30s
     depends_on:
       - vote
       - result
