@@ -4,6 +4,8 @@ services:
 
   sut:
     build: ./tests/
+    environment:
+      - OPENSSL_CONF: "/dev/null"
     healthcheck:
       test: "/app/tests.sh"
       timeout: 30s
